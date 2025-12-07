@@ -1,1 +1,215 @@
 
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply font-arabic bg-gray-50 text-gray-900;
+  }
+  
+  /* تحسين النصوص العربية */
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-bold;
+  }
+  
+  p, span, a, li {
+    @apply leading-relaxed;
+  }
+  
+  /* تخصيص شريط التمرير */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    @apply bg-gray-100;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    @apply bg-primary-500 rounded-full;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-primary-600;
+  }
+}
+
+@layer components {
+  /* زر رئيسي */
+  .btn-primary {
+    @apply bg-primary-600 text-white px-6 py-3 rounded-lg font-semibold 
+           hover:bg-primary-700 transition-colors duration-200 
+           focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2;
+  }
+  
+  /* زر ثانوي */
+  .btn-secondary {
+    @apply border-2 border-primary-600 text-primary-600 px-6 py-3 rounded-lg font-semibold 
+           hover:bg-primary-50 transition-colors duration-200 
+           focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2;
+  }
+  
+  /* بطاقة المنتج */
+  .product-card {
+    @apply bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden 
+           hover:shadow-lg hover:border-primary-300 transition-all duration-300;
+  }
+  
+  /* حقل الإدخال */
+  .input-field {
+    @apply w-full px-4 py-3 border border-gray-300 rounded-lg 
+           focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent
+           placeholder:text-gray-400;
+  }
+  
+  /* بطاقة الفئة */
+  .category-card {
+    @apply bg-white rounded-xl shadow-sm border border-gray-200 p-4 
+           hover:shadow-lg hover:border-primary-300 transition-all duration-300;
+  }
+  
+  /* شارة */
+  .badge {
+    @apply inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold;
+  }
+  
+  .badge-primary {
+    @apply bg-primary-100 text-primary-800;
+  }
+  
+  .badge-secondary {
+    @apply bg-secondary-100 text-secondary-800;
+  }
+  
+  .badge-success {
+    @apply bg-green-100 text-green-800;
+  }
+  
+  /* قائمة */
+  .list-item {
+    @apply px-4 py-3 hover:bg-gray-50 transition-colors duration-150;
+  }
+  
+  /* بطاقة المعلومات */
+  .info-card {
+    @apply bg-white rounded-xl shadow-md p-6 border border-gray-100;
+  }
+  
+  /* تنبيه */
+  .alert {
+    @apply p-4 rounded-lg border;
+  }
+  
+  .alert-success {
+    @apply bg-green-50 text-green-800 border-green-200;
+  }
+  
+  .alert-error {
+    @apply bg-red-50 text-red-800 border-red-200;
+  }
+  
+  .alert-warning {
+    @apply bg-yellow-50 text-yellow-800 border-yellow-200;
+  }
+  
+  .alert-info {
+    @apply bg-blue-50 text-blue-800 border-blue-200;
+  }
+  
+  /* حاوية */
+  .container-padding {
+    @apply px-4 sm:px-6 lg:px-8;
+  }
+  
+  /* عنوان القسم */
+  .section-title {
+    @apply text-2xl md:text-3xl font-bold text-gray-900 mb-2;
+  }
+  
+  .section-subtitle {
+    @apply text-gray-600 mb-6;
+  }
+}
+
+@layer utilities {
+  /* تنسيق النص */
+  .text-balance {
+    text-wrap: balance;
+  }
+  
+  /* الظلال */
+  .shadow-hover {
+    @apply hover:shadow-xl transition-shadow duration-300;
+  }
+  
+  /* التحويلات */
+  .transition-transform-slow {
+    transition: transform 0.5s ease;
+  }
+  
+  /* خلفية متدرجة */
+  .gradient-primary {
+    @apply bg-gradient-to-r from-primary-500 to-secondary-500;
+  }
+  
+  .gradient-secondary {
+    @apply bg-gradient-to-r from-blue-500 to-purple-500;
+  }
+  
+  /* تأثيرات الصور */
+  .image-hover {
+    @apply hover:scale-105 transition-transform duration-300;
+  }
+  
+  /* تخطيطات الشبكة */
+  .grid-auto-fit {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  }
+  
+  .grid-auto-fill {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  }
+}
+
+/* أنماط مخصصة للطباعة */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+  
+  body {
+    background: white !important;
+    color: black !important;
+  }
+}
+
+/* أنماط مخصصة للوضع الداكن */
+@media (prefers-color-scheme: dark) {
+  .dark-mode {
+    @apply bg-gray-900 text-white;
+  }
+  
+  .dark-mode .card {
+    @apply bg-gray-800 border-gray-700;
+  }
+}
+
+/* تحسينات للهواتف */
+@media (max-width: 640px) {
+  .mobile-padding {
+    @apply px-4;
+  }
+  
+  .mobile-stack {
+    @apply flex-col;
+  }
+  
+  .mobile-center {
+    @apply text-center;
+  }
+}
