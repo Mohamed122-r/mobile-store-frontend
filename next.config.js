@@ -1,14 +1,19 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  experimental: {
-    appDir: true,
-  },
+  reactStrictMode: true,
+  swcMinify: true,
   images: {
-    domains: ['localhost', 'your-backend.railway.app'], // 🔄 غيّر دومين الباكند
+    domains: ['res.cloudinary.com', 'images.unsplash.com', 'via.placeholder.com'],
   },
-  env: {
-    CUSTOM_KEY: process.env.CUSTOM_KEY,
-  }
+  // ⚠️ في المستقبل: أضف إعدادات API routes هنا
+  async rewrites() {
+    return [
+      {
+        source: '/api/:path*',
+        destination: 'https://your-backend-api.com/:path*',
+      },
+    ];
+  },
 }
 
 module.exports = nextConfig
