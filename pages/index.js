@@ -1,4 +1,3 @@
-
 import Head from 'next/head'
 import HeroBanner from '@/components/home/HeroBanner'
 import PhoneSelector from '@/components/home/PhoneSelector'
@@ -39,6 +38,7 @@ export default function Home() {
         
         {/* الأكثر مبيعاً */}
         <div className="container mx-auto px-4 py-8">
+          <h2 className="text-2xl font-bold mb-6 text-center">الأكثر مبيعاً</h2>
           <BestSellers />
         </div>
         
